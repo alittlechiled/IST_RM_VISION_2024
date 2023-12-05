@@ -1,0 +1,89 @@
+/dahua_camera:
+  ros__parameters:
+    camera_info_url: package://rm_vision_bringup/config/dahua_camera_info.yaml
+    camera_name: dahua_camera
+
+    acquisition_frame_rate: 100.0
+    balance_ratio_blue: 1.5
+    balance_ratio_green: 1.0
+    balance_ratio_red: 1.5
+    exposure_time: 4000.0
+    gain: 2.0
+    
+    image_height: 1024
+    image_width: 1280
+    offset_x: 0
+    offset_y: 0
+
+    image_rotation: true
+    use_sensor_data_qos: true
+
+/daheng_camera:
+  ros__parameters:
+    camera_info_url: package://rm_vision_bringup/config/daheng_camera_info.yaml
+    camera_name: daheng_camera
+
+    balance_ratio_blue: 1.5
+    balance_ratio_green: 1.0
+    balance_ratio_red: 1.5
+    exposure_time: 15000
+    gain: 1.0
+
+    image_rotation: false
+    use_sensor_data_qos: true
+
+/armor_detector:
+  ros__parameters:
+    active: true
+
+    armor:
+      max_angle: 35.0
+      min_light_ratio: 0.8
+      max_large_center_distance: 6.0
+      min_large_center_distance: 5.0
+      max_small_center_distance: 3.0
+      min_small_center_distance: 2.0
+
+    classifier:
+      threshold: 0.6
+
+    debug: true
+
+    detect_color: 0
+
+    light:
+      max_angle: 35.0
+      max_ratio: 0.3
+      min_ratio: 0.1
+
+    min_lightness: 100
+
+    subscribe_compressed: true
+
+/armor_processor:
+  ros__parameters:
+    kf:
+      q:
+      - 0.01
+      - 0.01
+      - 0.01
+      - 0.2
+      - 0.2
+      - 0.1
+      r:
+      - 0.05
+      - 0.05
+      - 0.05
+
+    spin_observer:
+      allow: true
+      allow_following_range: 0.3
+      max_jump_angle: 0.2
+      max_jump_period: 0.8
+
+    target_frame: odom
+
+    tracker:
+      lost_threshold: 5
+      max_match_distance: 0.2
+      tracking_shreshold: 5

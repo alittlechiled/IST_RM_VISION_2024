@@ -1,0 +1,4 @@
+/energe_detect_node:
+  ros__parameters:
+    ThresholdGray: 125
+    ThresholdColor: 170
